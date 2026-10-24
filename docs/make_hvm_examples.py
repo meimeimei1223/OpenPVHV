@@ -1,7 +1,8 @@
 """Make docs/hvm_examples.png: coronal projections of the reference, TotalSegmentator liver_vessels and OpenPVHV on three held-out
-HVM test cases (75th / 50th / 25th percentile of clDice in the paper). Masks only (HVM, CC BY 4.0).
+HVM test cases, the cases of the paper's Figure 1 (75th / 50th / 25th percentile of the mean of the portal and hepatic clDice,
+liver mask + 10 mm, 55 cases with output). Masks only, not cut (HVM, CC BY 4.0).
 usage: python make_hvm_examples.py <ref dir: <case>_gt.nii.gz, 1 PV / 2 HV> <OpenPVHV dir: <case>.nii.gz>
-                                   <TS dir: <case>_liver_vessels.nii.gz> <out.png> [<per-case csv with clDice>]
+                                   <TS dir: <case>_liver_vessels.nii.gz> <out.png> [<per-case csv with clDice, liver mask + 10 mm>]
 """
 import csv, sys
 import numpy as np, nibabel as nib
@@ -10,8 +11,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 
-CASES = ["c1_096", "c2_159", "c1_069"]
-PV, HV, TS = np.array([0.15, 0.45, 0.95]), np.array([0.90, 0.25, 0.25]), np.array([0.35, 0.35, 0.35])
+CASES = ["c2_054", "c2_159", "c1_069"]
+PV, HV, TS = np.array([0.90, 0.25, 0.25]), np.array([0.15, 0.45, 0.95]), np.array([0.35, 0.35, 0.35])   # as in the paper: PV red, HV blue
 
 
 def load(f):
@@ -54,7 +55,7 @@ def main():
                 a.set_ylabel(f"HVM test {c}", fontsize=10)
     fig.legend(handles=[Patch(color=PV, label="portal vein"), Patch(color=HV, label="hepatic veins"),
                         Patch(color=TS, label="liver vessels (one class)")], loc="lower center", ncol=3, frameon=False, fontsize=10)
-    fig.text(0.5, 0.005, "Coronal projections, held-out HVM test cases (75th / 50th / 25th percentile of clDice). HVM data: Xie T, "
+    fig.text(0.5, 0.005, "Coronal projections of the masks; held-out HVM test cases of the paper's Figure 1; clDice: liver mask + 10 mm. HVM data: Xie T, "
              "Zenodo 2025, doi:10.5281/zenodo.19885789, CC BY 4.0.", ha="center", fontsize=7.5, color="0.3")
     plt.tight_layout(rect=(0, 0.04, 1, 1))
     plt.savefig(out, dpi=110)

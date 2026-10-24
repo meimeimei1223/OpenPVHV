@@ -19,8 +19,9 @@ License 2.0.
 
 ![Coronal projections of the reference, TotalSegmentator liver_vessels and OpenPVHV on three held-out HVM test cases](docs/hvm_examples.png)
 
-*Held-out HVM test cases (75th / 50th / 25th percentile of clDice): reference, TotalSegmentator `liver_vessels` (one class) and
-OpenPVHV (portal vein blue, hepatic veins red), coronal projections. HVM data: Xie T, Zenodo 2025, doi:10.5281/zenodo.19885789,
+*Held-out HVM test cases of the paper's Figure 1 (75th / 50th / 25th percentile of clDice, liver mask + 10 mm as in the Evaluation
+table): reference, TotalSegmentator `liver_vessels` (one class) and OpenPVHV (portal vein red, hepatic veins blue), coronal
+projections. HVM data: Xie T, Zenodo 2025, doi:10.5281/zenodo.19885789,
 CC BY 4.0.*
 
 ## Output
