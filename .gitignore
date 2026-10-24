@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.nii
+*.nii.gz
+*.zip
+*.pth

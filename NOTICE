@@ -1,0 +1,43 @@
+OpenPVHV: open portal vein / hepatic vein segmentation for CT
+Copyright 2026 Meidai Kasai (Independent Researcher)
+
+The code and the model weights are licensed under the Apache License, Version 2.0 (see LICENSE).
+This is not a medical device. Research use only; not for diagnosis or treatment decisions.
+
+-------------------------------------------------------------------------------
+Training data
+-------------------------------------------------------------------------------
+The model weights were trained on the Hepatic Vessel Map (HVM) dataset:
+  Paper: Xie T, Li X, Zhang L, Huang X, Liu Z, Huang C, Cai Q, Zhang Z, Wang C, Ma X, Huang R, Luo Z, Cheng G, Xu D, Liu Z,
+  Lu C. Hepatic Vessel Map (HVM): an expert-annotated CT dataset for clinically applicable AI in liver vascular
+  segmentation and surgical planning. Scientific Data. 2026;13:1259. https://doi.org/10.1038/s41597-026-07550-3
+  Data:  Xie T. Hepatic Vessel Map (HVM) [Dataset]. Zenodo; 2025. https://doi.org/10.5281/zenodo.19885789
+  License: Creative Commons Attribution 4.0 International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0/
+
+How the HVM data were used (changes made):
+  - Only the portal vein and hepatic vein annotations were used (the tumour annotations were not used).
+  - Because the annotation file names do not follow the image file names, each annotation was paired with its image by
+    image size, orientation and position (NIfTI header) and checked by the CT values inside the vessel masks.
+    280 cases were paired one-to-one; 2 cases of Center 2 were excluded (ambiguous or no match).
+  - The two masks were merged into one label map (0 background, 1 portal vein, 2 hepatic vein) on the image grid.
+  - 224 cases (80 % of each centre, random seed 20261011) were used for training; 56 cases were held out for testing.
+  - No HVM images or annotations are redistributed in this repository or with the weights.
+
+-------------------------------------------------------------------------------
+Third-party software and configuration
+-------------------------------------------------------------------------------
+nnU-Net v2 (Apache License 2.0), Copyright Division of Medical Image Computing, German Cancer Research Center (DKFZ)
+  Isensee F, Jaeger PF, Kohl SAA, Petersen J, Maier-Hein KH. nnU-Net: a self-configuring method for deep
+  learning-based biomedical image segmentation. Nature Methods 18, 203-211 (2021). doi:10.1038/s41592-020-01008-z
+  The model was trained with nnU-Net v2 (2.7.0) and is run with it.
+
+TotalSegmentator (Apache License 2.0), Copyright Jakob Wasserthal and contributors
+  Wasserthal J, Breit H-C, Meyer MT, et al. TotalSegmentator: Robust Segmentation of 104 Anatomic Structures in CT
+  Images. Radiology: Artificial Intelligence 5(5), e230024 (2023). doi:10.1148/ryai.230024
+  - The nnU-Net configuration (plans.json: network, patch size, target spacing and CT intensity normalisation values)
+    is the configuration of the TotalSegmentator "liver_vessels" model (task 8), used unchanged except for its name.
+    The CT normalisation values in it are statistics computed by nnU-Net from that model's training data; no
+    TotalSegmentator weights were used to initialise or train this model (random initialisation).
+  - At inference, TotalSegmentator's "total" models (task 298, 6 mm; optionally task 291, 1.5 mm) find the liver for
+    the crop, and TotalSegmentator's prediction functions run the pipeline. These models are downloaded by
+    TotalSegmentator under its own license; they are not part of this repository.
