@@ -89,7 +89,9 @@ VEELA counts the intrahepatic inferior vena cava as hepatic vein; OpenPVHV does 
 time, and writes one label map, one JSON per case (crop, voxel counts, time), and `run.json` (versions, hashes). The images are not
 part of this repository. Obtain HVM from Zenodo (10.5281/zenodo.19885789) and VEELA from the challenge organisers.
 The 56 held-out HVM cases are listed in `evaluation/hvm_split.json`. `evaluation/hvm_pairs.json` maps each case to its HVM image
-and annotation files.
+and annotation files. `evaluation/crlm_train951_cases.csv` lists the 80 TCIA Colorectal-Liver-Metastases cases (slice thickness
+<= 2.5 mm) considered for the HVM + CRLM comparison model of the paper (not the released model): 62 used for training, 18 excluded,
+with the reason (case IDs and numbers only; no images or annotations).
 ```
 M=<unzipped>/Dataset950_HVM_PVHV/nnUNetTrainer__nnUNetPlansScratch__3d_fullres
 python evaluation/predict_eval_sets.py hvm_test    6mm out/hvm_6mm   --model-dir $M --hvm-dir "<HVM Dataset>"
@@ -104,10 +106,10 @@ See [MODEL_CARD.md](MODEL_CARD.md#limitations): no inferior vena cava; the liver
 thin peripheral branches may be missed; trained on portal venous phase CT from two centres.
 
 ## Citation
-Paper (original article; preprint DOI: _to be added_):
+Paper (original article):
 
 > Meidai Kasai. Separating portal and hepatic veins on CT with a TotalSegmentator-compatible model trained only on public data:
-> external validation and release. 2026. Preprint, https://doi.org/<PREPRINT_DOI>.
+> external validation and release. 2026.
 
 Weights: Meidai Kasai. OpenPVHV model weights (nnU-Net Dataset950_HVM_PVHV). Zenodo; 2026.
 https://doi.org/10.5281/zenodo.23619753

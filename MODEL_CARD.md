@@ -21,7 +21,7 @@ TotalSegmentator authors (not an official TotalSegmentator task).
 | License | Apache License 2.0 (weights and code) |
 | Author | Meidai Kasai (Independent Researcher) |
 | Weights | Zenodo, https://doi.org/10.5281/zenodo.23619753 (`OpenPVHV_weights.zip`, SHA-256 `c775a4d054c553d0a40d3c3fff05942dc24561ac5698e8263c885cd31a914b1b`) |
-| Paper | Separating portal and hepatic veins on CT with a TotalSegmentator-compatible model trained only on public data: external validation and release (2026; preprint DOI to be added) |
+| Paper | Separating portal and hepatic veins on CT with a TotalSegmentator-compatible model trained only on public data: external validation and release (2026) |
 
 ## Intended use
 - Research and education: obtaining separate portal and hepatic venous trees from contrast-enhanced abdominal CT, for example as
