@@ -20,7 +20,7 @@ TotalSegmentator authors (not an official TotalSegmentator task).
 | Hardware | 1 × NVIDIA GeForce RTX 4070 (12 GB), about 25 h |
 | License | Apache License 2.0 (weights and code) |
 | Author | Meidai Kasai (Independent Researcher) |
-| Weights | Zenodo, https://doi.org/10.5281/zenodo.<WEIGHTS_RECORD> (`OpenPVHV_weights.zip`, SHA-256 `c775a4d054c553d0a40d3c3fff05942dc24561ac5698e8263c885cd31a914b1b`) |
+| Weights | Zenodo, https://doi.org/10.5281/zenodo.23619753 (`OpenPVHV_weights.zip`, SHA-256 `c775a4d054c553d0a40d3c3fff05942dc24561ac5698e8263c885cd31a914b1b`) |
 | Paper | Separating portal and hepatic veins on CT with a TotalSegmentator-compatible model trained only on public data: external validation and release (2026; preprint DOI to be added) |
 
 ## Intended use

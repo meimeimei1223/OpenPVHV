@@ -31,7 +31,7 @@ Python 3.10–3.11 with PyTorch, then
 ```
 pip install -r requirements.txt        # TotalSegmentator 2.18.0, nnunetv2 2.7.0
 ```
-Download the weights (`OpenPVHV_weights.zip`, 229 MB) from Zenodo, https://doi.org/10.5281/zenodo.<WEIGHTS_RECORD>, and check
+Download the weights (`OpenPVHV_weights.zip`, 229 MB) from Zenodo, https://doi.org/10.5281/zenodo.23619753, and check
 its SHA-256:
 ```
 c775a4d054c553d0a40d3c3fff05942dc24561ac5698e8263c885cd31a914b1b  OpenPVHV_weights.zip
@@ -110,7 +110,7 @@ Paper (original article; preprint DOI: _to be added_):
 > external validation and release. 2026. Preprint, https://doi.org/<PREPRINT_DOI>.
 
 Weights: Meidai Kasai. OpenPVHV model weights (nnU-Net Dataset950_HVM_PVHV). Zenodo; 2026.
-https://doi.org/10.5281/zenodo.<WEIGHTS_RECORD>
+https://doi.org/10.5281/zenodo.23619753
 
 Please also cite the training data, TotalSegmentator and nnU-Net (full references in `NOTICE`):
 
