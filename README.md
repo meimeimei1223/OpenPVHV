@@ -17,6 +17,12 @@ configuration (plans) as `liver_vessels`. The pipeline is that of `liver_vessels
 6 mm `total` model, the CT is cropped to the liver + 20 mm, and the vessel model runs on the crop. Code and weights: Apache
 License 2.0.
 
+![Coronal projections of the reference, TotalSegmentator liver_vessels and OpenPVHV on three held-out HVM test cases](docs/hvm_examples.png)
+
+*Held-out HVM test cases (75th / 50th / 25th percentile of clDice): reference, TotalSegmentator `liver_vessels` (one class) and
+OpenPVHV (portal vein blue, hepatic veins red), coronal projections. HVM data: Xie T, Zenodo 2025, doi:10.5281/zenodo.19885789,
+CC BY 4.0.*
+
 ## Output
 | Label | Structure |
 |---|---|
