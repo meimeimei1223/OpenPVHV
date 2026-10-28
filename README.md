@@ -113,10 +113,10 @@ See [MODEL_CARD.md](MODEL_CARD.md#limitations): no inferior vena cava; the liver
 thin peripheral branches may be missed; trained on portal venous phase CT from two centres.
 
 ## Citation
-Paper (original article):
+Paper (preprint):
 
 > Meidai Kasai. Separating portal and hepatic veins on CT with a TotalSegmentator-compatible model trained only on public data:
-> external validation and release. 2026.
+> external validation and release. Research Square; 2026. https://doi.org/10.21203/rs.3.rs-11500369/v1 (preprint, CC BY 4.0)
 
 Weights: Meidai Kasai. OpenPVHV model weights (nnU-Net Dataset950_HVM_PVHV). Zenodo; 2026.
 https://doi.org/10.5281/zenodo.23619753
